@@ -1,6 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Prefecture, type: :model do
+  describe '#aomori_info' do
+    subject { Prefecture.aomori_info }
+    it { is_expected.to eq ({ area_cd: 2, name: '青森県', count: 1262686 }) }
+  end
+
+  describe '#aomori_kanji_pref_name' do
+    subject { Prefecture.aomori_kanji_pref_name }
+    it { is_expected.to eq '青森県' }
+  end
+
+  describe '#aomori_kanji_name' do
+    subject { Prefecture.aomori_kanji_name }
+    it { is_expected.to eq '青森県' }
+  end
+
+  describe '#miyagi_count' do
+    subject { Prefecture.miyagi_count }
+    it { is_expected.to eq 2313215 }
+  end
+
   describe '#names' do
     subject { Prefecture.names }
     it { is_expected.to eq ['北海道', '青森県', '岩手県', '宮城県'] }

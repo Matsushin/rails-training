@@ -8,9 +8,25 @@ class Prefecture
   ]
 
   class << self
+    def aomori_info
+      # PREFECTURESから青森県の情報を取得しよう
+      # 例) PREFECTURES[x]
+
+    end
+
+    def aomori_kanji_name
+      # PREFECTURESから青森県の名前を取得しよう
+
+    end
+
+    def miyagi_count
+      # PREFECTURESから宮城県の人口を取得しよう
+
+    end
+
     def names
       # 「map」メソッドを使って都道府県名の配列を作ろう
-      # PREFECTURES.map ...
+      # 例) PREFECTURES.map ...
 
     end
 
