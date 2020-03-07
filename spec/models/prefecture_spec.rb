@@ -6,11 +6,6 @@ RSpec.describe Prefecture, type: :model do
     it { is_expected.to eq ({ area_cd: 2, name: '青森県', count: 1262686 }) }
   end
 
-  describe '#aomori_kanji_pref_name' do
-    subject { Prefecture.aomori_kanji_pref_name }
-    it { is_expected.to eq '青森県' }
-  end
-
   describe '#aomori_kanji_name' do
     subject { Prefecture.aomori_kanji_name }
     it { is_expected.to eq '青森県' }
