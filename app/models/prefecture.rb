@@ -11,17 +11,17 @@ class Prefecture
     def aomori_info
       # PREFECTURESから青森県の情報を取得しよう
       # 例) PREFECTURES[x]
-
+      PREFECTURES[1]
     end
 
     def aomori_kanji_name
       # PREFECTURESから青森県の名前を取得しよう
-
+      aomori_info[:name]
     end
 
     def miyagi_count
       # PREFECTURESから宮城県の人口を取得しよう
-
+      PREFECTURES.last[:count]
     end
 
     def names
