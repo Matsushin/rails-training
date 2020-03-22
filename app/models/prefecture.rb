@@ -7,37 +7,47 @@ class Prefecture
       { area_cd: 2, name: '宮城県', count: 2313215 }
   ]
 
+  # PREFECTURES = ["aa","bb","cc"]
+
   class << self
     def aomori_info
       # PREFECTURESから青森県の情報を取得しよう
       # 例) PREFECTURES[x]
-
+      PREFECTURES[1]
+      #$=> {:area_cd=>2, :count=>1262686, :name=>"青森県"}
     end
 
     def aomori_kanji_name
       # PREFECTURESから青森県の名前を取得しよう
-
+      name = PREFECTURES[1]
+      name[:name]
+      #別パターン PREFECTURES[1][:name]
+      #$=> "青森県"
     end
 
     def miyagi_count
       # PREFECTURESから宮城県の人口を取得しよう
-
+      PREFECTURES[3][:count]
+      #$=> 2313215
     end
 
     def names
       # 「map」メソッドを使って都道府県名の配列を作ろう
       # 例) PREFECTURES.map ...
-
+      PREFECTURES.map{|hash| hash[:name]}
+      #$=> ['北海道', '青森県', '岩手県', '宮城県']
     end
 
     def counts
       # 「pluck」メソッドを使って人口の配列を作ろう
-
+      PREFECTURES.pluck(:count)
     end
 
     def unique_area_cd
       # 「uniq」メソッドを使って重複しないarea_cdの配列を作ろう
+      PREFECTURES.map{|prefecture| prefecture[:area_cd]} # => [1, 2, 2, 2]
 
+      PREFECTURES.map{|prefecture| prefecture[:area_cd]}.uniq # => [1, 2]
     end
 
     def total_count
