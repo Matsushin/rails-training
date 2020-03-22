@@ -30,11 +30,6 @@ class Prefecture
 
     end
 
-    def counts
-      # 「pluck」メソッドを使って人口の配列を作ろう
-
-    end
-
     def unique_area_cd
       # 「uniq」メソッドを使って重複しないarea_cdの配列を作ろう
 
