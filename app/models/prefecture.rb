@@ -52,9 +52,7 @@ class Prefecture
 
     def select_by_count(count)
       # 「select」メソッドを使って人口数(count)が引数のcountより大きい県名を取得しよう
-      PREFECTURES.select do |pref|
-        pref[:count] > count
-      end.pluck(:name)
+      PREFECTURES.select { |pref| pref[:count] > count }.map { |pref| pref[:name] }
     end
 
     def group_by_area
@@ -64,7 +62,7 @@ class Prefecture
 
     def name_counts
       # 「to_h」メソッドを使って都道府県名(name)をキー、countがバリューのHashを作ろう
-      PREFECTURES.pluck(:name, :count).to_h
+      PREFECTURES.map { |pref| [pref[:name], pref[:count]] }.to_h
     end
 
     def add_prefecture(prefecture)
