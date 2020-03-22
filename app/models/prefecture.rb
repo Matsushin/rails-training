@@ -30,14 +30,9 @@ class Prefecture
       PREFECTURES.map { |pref| pref[:name] }
     end
 
-    def counts
-      # 「pluck」メソッドを使って人口の配列を作ろう
-      PREFECTURES.pluck(:count)
-    end
-
     def unique_area_cd
       # 「uniq」メソッドを使って重複しないarea_cdの配列を作ろう
-      PREFECTURES.pluck(:area_cd).uniq
+      PREFECTURES.map { |pref| pref[:area_cd] }.uniq
     end
 
     def total_count

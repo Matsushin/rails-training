@@ -21,11 +21,6 @@ RSpec.describe Prefecture, type: :model do
     it { is_expected.to eq ['北海道', '青森県', '岩手県', '宮城県'] }
   end
 
-  describe '#counts' do
-    subject { Prefecture.counts }
-    it { is_expected.to eq [5285430, 1262686, 1240522, 2313215] }
-  end
-
   describe '#unique_area_cd' do
     subject { Prefecture.unique_area_cd }
     it { is_expected.to eq [1, 2] }
