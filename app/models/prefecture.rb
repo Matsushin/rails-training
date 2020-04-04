@@ -45,44 +45,44 @@ class Prefecture
 
     def unique_area_cd
       # 「uniq」メソッドを使って重複しないarea_cdの配列を作ろう
-      PREFECTURES.map{|prefecture| prefecture[:area_cd]} # => [1, 2, 2, 2]
-
       PREFECTURES.map{|prefecture| prefecture[:area_cd]}.uniq # => [1, 2]
     end
 
     def total_count
       # 「inject」メソッドを使って各都道府県のcountを集計してみよう
-
+      prefecture_count = PREFECTURES.map{|prefecture| prefecture[:count]}
+      prefecture_count.inject { |sum, num| sum+=num }
     end
 
     def join_names
       # 「join」メソッドを使って各都道府県の名称(name)をカンマ区切りで繋げてみよう
-
+      prefecture_name = PREFECTURES.map{|prefecture| prefecture[:name]}
+      prefecture_name.join(',')
     end
 
     def find_by_count(count)
       # 「find」メソッドを使って人口数(count)が引数のcountより小さい最初の県名を取得しよう
-
+      PREFECTURES.find {|prefecture| count > prefecture[:count]}[:name]
     end
 
     def select_by_count(count)
       # 「select」メソッドを使って人口数(count)が引数のcountより大きい県名を取得しよう
-
+      big_prefecture = PREFECTURES.select {|prefecture| count < prefecture[:count]}.map {|prefecture| prefecture[:name]}
     end
 
     def group_by_area
       # 「group_by」メソッドを使って「area_cd」でグループ分けしてみよう
-
+      PREFECTURES.group_by{|pref| pref[:area_cd] }
     end
 
     def name_counts
       # 「to_h」メソッドを使って都道府県名(name)をキー、countがバリューのHashを作ろう
-
+      PREFECTURES.map{|pref| [pref[:name],pref[:count]]}.to_h
     end
 
     def add_prefecture(prefecture)
       # 「push」メソッドを使って都道府県名を情報を追加して新しいHashを作ろう
-
+      PREFECTURES.push(prefecture)
     end
   end
 end
