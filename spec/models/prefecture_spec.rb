@@ -65,7 +65,7 @@ RSpec.describe Prefecture, type: :model do
     it { is_expected.to eq({ '北海道' => 5285430, '青森県' => 1262686, '岩手県' => 1240522, '宮城県' => 2313215 }) }
   end
 
-  describe '#name_counts' do
+  describe '#add_prefecture' do
     let(:prefecture) { { area_cd: 2, name: '秋田県', count: 1023119 }}
     it '県が1つ追加されている' do
       prefectures = Prefecture.add_prefecture(prefecture)
