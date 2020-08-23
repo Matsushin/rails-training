@@ -67,7 +67,7 @@ class Prefecture
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:49
     def group_by_area
       # 「group_by」メソッドを使って「area_cd」でグループ分けしてみよう
-      
+
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:63

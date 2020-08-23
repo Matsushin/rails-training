@@ -10,31 +10,31 @@ class Task < ApplicationRecord
     def select_by_category(category)
       # whereメソッドを使って引数で渡されたカテゴリのtaskレコードを取得しよう
       # 例) where(xxxxx: xxxxx)
-
+      where(category_id: category)
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/task_spec.rb:32
     def detect_by_category(category)
       # find_byメソッドを使って引数で渡されたカテゴリのtaskレコードを1つ取得しよう
-
+      find_by(category_id: category)
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/task_spec.rb:37
     def count_by_category(category)
       # countメソッドを使って引数で渡されたカテゴリのtaskレコード数を取得しよう
-
+      select_by_category(category).count
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/task_spec.rb:42
     def all_titles
       # pluckメソッドを使って全レコードのtitleを配列で取得しよう
-
+      pluck(:title)
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/task_spec.rb:47
     def select_by_category_name_with_joins(name)
       # joinsメソッドを使って引数で渡されたカテゴリ名で絞ってtaskレコードを取得しよう
-
+      Category.joins(:tasks).select(name)
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/task_spec.rb:52
