@@ -44,31 +44,30 @@ class Prefecture
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:29
     def total_count
       # 「inject」メソッドを使って各都道府県のcountを集計してみよう
-      PREFECTURES.map
+      PREFECTURES.inject(0) { |sum, n| sum + n[:count] }
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:34
     def join_names
       # 「join」メソッドを使って各都道府県の名称(name)をカンマ区切りで繋げてみよう
-
+      names.join(",")
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:39
     def find_by_count(count)
       # 「find」メソッドを使って人口数(count)が引数のcountより小さい最初の県名を取得しよう
-
+      PREFECTURES.find{|n| n[:count] < count }[:name]
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:44
     def select_by_count(count)
       # 「select」メソッドを使って人口数(count)が引数のcountより大きい県名を取得しよう
-
+      PREFECTURES.select{|n| n[:count] > count}.map {|i| i[:name]}
     end
-
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:49
     def group_by_area
       # 「group_by」メソッドを使って「area_cd」でグループ分けしてみよう
-
+      
     end
 
     # RSpec実行コマンド -> bundle exec rspec ./spec/models/prefecture_spec.rb:63
